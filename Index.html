@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
   <title>Happy Anniversary My Love | A Journey of Hearts & Pictures 💖</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; user-select: none; }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
       overflow-x: hidden;
       background: radial-gradient(circle at 10% 30%, #ffe3ec, #ffc0d0, #ffe0f0, #2b0015);
       min-height: 100vh;
       margin: 0;
+      padding: 0;
     }
     .font-love { font-family: 'Pacifico', cursive; }
 
@@ -31,6 +32,7 @@
       background: rgba(20, 0, 12, 0.92);
       backdrop-filter: blur(12px);
       transition: opacity 1.2s ease, transform 1.2s ease;
+      padding: 16px;
     }
     #lockScreen.hidden {
       opacity: 0;
@@ -41,7 +43,7 @@
       background: rgba(255, 255, 255, 0.06);
       backdrop-filter: blur(20px);
       border-radius: 48px;
-      padding: 40px 32px;
+      padding: 32px 24px;
       max-width: 400px;
       width: 100%;
       border: 1px solid rgba(255, 200, 220, 0.15);
@@ -49,8 +51,8 @@
       text-align: center;
     }
     .lock-container .lock-icon {
-      font-size: 3.5rem;
-      margin-bottom: 8px;
+      font-size: 3rem;
+      margin-bottom: 6px;
       display: inline-block;
       animation: pulseLock 2s ease-in-out infinite;
     }
@@ -60,26 +62,26 @@
     }
     .lock-container h2 {
       font-family: 'Pacifico', cursive;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       color: #ffb6d0;
-      margin-bottom: 4px;
+      margin-bottom: 2px;
       letter-spacing: 1px;
     }
     .lock-container .sub {
       color: rgba(255, 180, 200, 0.6);
-      font-size: 0.85rem;
+      font-size: 0.75rem;
       letter-spacing: 3px;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
     .pin-dots {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin: 20px 0 28px;
+      gap: 14px;
+      margin: 16px 0 22px;
     }
     .pin-dot {
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.15);
       border: 2px solid rgba(255, 255, 255, 0.1);
@@ -97,27 +99,23 @@
     .pin-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 10px;
       max-width: 280px;
       margin: 0 auto;
     }
     .pin-btn {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 16px 0;
-      font-size: 1.6rem;
+      border-radius: 18px;
+      padding: 14px 0;
+      font-size: 1.4rem;
       font-weight: 600;
       color: #ffdce8;
       cursor: pointer;
       transition: 0.2s ease;
       font-family: 'Poppins', sans-serif;
       backdrop-filter: blur(4px);
-    }
-    .pin-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 107, 157, 0.3);
-      transform: scale(1.02);
+      -webkit-tap-highlight-color: transparent;
     }
     .pin-btn:active {
       transform: scale(0.92);
@@ -130,14 +128,14 @@
       pointer-events: none;
     }
     .pin-btn .delete-icon {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       opacity: 0.6;
     }
     .lock-error {
       color: #ff6b8a;
-      font-size: 0.8rem;
-      margin-top: 16px;
-      min-height: 24px;
+      font-size: 0.75rem;
+      margin-top: 14px;
+      min-height: 22px;
       opacity: 0;
       transition: 0.3s;
     }
@@ -145,9 +143,9 @@
       opacity: 1;
     }
     .lock-footer {
-      margin-top: 20px;
+      margin-top: 16px;
       color: rgba(255, 180, 200, 0.3);
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 2px;
     }
 
@@ -167,6 +165,7 @@
       opacity: 0;
       pointer-events: none;
       transition: opacity 1.5s ease;
+      padding: 16px;
     }
     #welcomeScreen.show {
       opacity: 1;
@@ -178,17 +177,18 @@
     }
     .welcome-content {
       text-align: center;
-      padding: 30px;
+      padding: 20px;
       max-width: 550px;
+      width: 100%;
       animation: welcomeFloat 3s ease-in-out infinite;
     }
     @keyframes welcomeFloat {
       0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      50% { transform: translateY(-8px); }
     }
     .welcome-content h1 {
       font-family: 'Pacifico', cursive;
-      font-size: 3.2rem;
+      font-size: 2.5rem;
       background: linear-gradient(135deg, #ffb6d0, #ff6b9d, #ff3b7a, #ffb6d0);
       background-size: 300% 300%;
       -webkit-background-clip: text;
@@ -196,31 +196,34 @@
       animation: shimmerText 4s ease-in-out infinite;
       filter: drop-shadow(0 0 30px rgba(255, 107, 157, 0.3));
     }
+    @media (min-width: 640px) {
+      .welcome-content h1 { font-size: 3.2rem; }
+    }
     @keyframes shimmerText {
       0%,100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
     }
     .welcome-content .sub-welcome {
       color: rgba(255, 200, 220, 0.8);
-      font-size: 1.1rem;
-      margin-top: 12px;
+      font-size: 1rem;
+      margin-top: 10px;
       letter-spacing: 2px;
       font-weight: 300;
     }
     .welcome-content .quote {
       color: rgba(255, 200, 220, 0.5);
-      font-size: 0.95rem;
+      font-size: 0.85rem;
       font-style: italic;
-      margin-top: 16px;
-      padding: 12px 20px;
+      margin-top: 14px;
+      padding: 10px 16px;
       border-top: 1px solid rgba(255, 200, 220, 0.1);
       border-bottom: 1px solid rgba(255, 200, 220, 0.1);
       display: inline-block;
     }
     .welcome-content .flowers {
-      font-size: 2.8rem;
-      margin-top: 12px;
-      letter-spacing: 12px;
+      font-size: 2.2rem;
+      margin-top: 10px;
+      letter-spacing: 10px;
       animation: flowerSway 3s ease-in-out infinite;
     }
     @keyframes flowerSway {
@@ -238,7 +241,7 @@
     }
     .welcome-heart {
       position: absolute;
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       animation: floatHeartWelcome 6s ease-in-out infinite;
       opacity: 0.4;
     }
@@ -248,7 +251,7 @@
       100% { transform: translateY(-10vh) rotate(720deg) scale(1.2); opacity: 0; }
     }
 
-    /* ===== ORIGINAL STYLES (preserved) ===== */
+    /* ===== ORIGINAL STYLES (preserved & responsive) ===== */
     .heart {
       position: fixed;
       bottom: -40px;
@@ -264,8 +267,8 @@
     }
     .sparkle {
       position: fixed;
-      width: 6px;
-      height: 6px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: #fffbc2;
       box-shadow: 0 0 12px gold;
@@ -293,48 +296,61 @@
       backdrop-filter: blur(18px);
       border: 1px solid rgba(255, 215, 225, 0.7);
       box-shadow: 0 30px 50px rgba(110, 0, 60, 0.3);
+      width: 100%;
     }
 
     .gift-box {
-      width: 150px;
-      height: 115px;
+      width: 140px;
+      height: 108px;
       background: linear-gradient(145deg, #ff2e7d, #ff75aa);
-      border-radius: 22px;
+      border-radius: 20px;
       position: relative;
       margin: 0 auto;
       animation: bounceGift 1.6s infinite;
       cursor: pointer;
       box-shadow: 0 20px 35px rgba(200, 30, 100, 0.5);
     }
+    @media (min-width: 640px) {
+      .gift-box { width: 150px; height: 115px; }
+    }
     .gift-box::before {
       content: '';
       position: absolute;
-      width: 28px;
-      height: 115px;
+      width: 26px;
+      height: 108px;
       background: #ffe9a3;
-      left: 61px;
+      left: 57px;
       top: 0;
       border-radius: 8px;
+    }
+    @media (min-width: 640px) {
+      .gift-box::before { width: 28px; height: 115px; left: 61px; }
     }
     .gift-box::after {
       content: '';
       position: absolute;
-      width: 170px;
-      height: 28px;
+      width: 160px;
+      height: 26px;
       background: #ffe9a3;
       left: -10px;
-      top: 42px;
+      top: 40px;
       border-radius: 12px;
     }
+    @media (min-width: 640px) {
+      .gift-box::after { width: 170px; height: 28px; top: 42px; }
+    }
     .gift-lid {
-      width: 175px;
-      height: 38px;
+      width: 164px;
+      height: 35px;
       background: linear-gradient(135deg, #ff146e, #ff589e);
-      border-radius: 20px;
+      border-radius: 18px;
       position: absolute;
-      top: -35px;
+      top: -33px;
       left: -12px;
       transition: 0.45s cubic-bezier(0.34, 1.2, 0.55, 1);
+    }
+    @media (min-width: 640px) {
+      .gift-lid { width: 175px; height: 38px; top: -35px; left: -12px; }
     }
     .gift-box.open .gift-lid {
       transform: rotate(-28deg) translate(-38px, -48px);
@@ -346,21 +362,27 @@
 
     .balloon {
       position: absolute;
-      width: 62px;
-      height: 82px;
+      width: 50px;
+      height: 68px;
       border-radius: 50% 50% 45% 45%;
       animation: balloonFloat 4.2s ease-in-out infinite;
       z-index: 0;
       opacity: 0.7;
     }
+    @media (min-width: 640px) {
+      .balloon { width: 62px; height: 82px; }
+    }
     .balloon::after {
       content: '';
       position: absolute;
       width: 2px;
-      height: 80px;
+      height: 60px;
       background: rgba(255,240,245,0.7);
       left: 50%;
-      top: 78px;
+      top: 68px;
+    }
+    @media (min-width: 640px) {
+      .balloon::after { height: 80px; top: 78px; }
     }
     @keyframes balloonFloat {
       0%,100% { transform: translateY(0) rotate(-4deg); }
@@ -369,46 +391,61 @@
 
     .cake {
       position: relative;
-      width: 210px;
-      height: 135px;
+      width: 180px;
+      height: 120px;
       margin: 0 auto;
+    }
+    @media (min-width: 640px) {
+      .cake { width: 210px; height: 135px; }
     }
     .cake-base {
       position: absolute;
       bottom: 0;
-      width: 210px;
-      height: 85px;
+      width: 180px;
+      height: 75px;
       background: linear-gradient(145deg, #ff86b3, #ff387f);
-      border-radius: 20px 20px 30px 30px;
+      border-radius: 18px 18px 26px 26px;
+    }
+    @media (min-width: 640px) {
+      .cake-base { width: 210px; height: 85px; border-radius: 20px 20px 30px 30px; }
     }
     .cake-top {
       position: absolute;
-      bottom: 70px;
-      width: 210px;
-      height: 38px;
+      bottom: 62px;
+      width: 180px;
+      height: 34px;
       background: #fff2f5;
       border-radius: 50%;
       box-shadow: inset 0 2px 5px #ffbfd0;
     }
+    @media (min-width: 640px) {
+      .cake-top { bottom: 70px; width: 210px; height: 38px; }
+    }
     .candle {
       position: absolute;
-      bottom: 105px;
-      left: 96px;
-      width: 18px;
-      height: 45px;
+      bottom: 92px;
+      left: 82px;
+      width: 16px;
+      height: 38px;
       background: repeating-linear-gradient(45deg, #fff, #fff 6px, #ff6090 6px, #ff6090 12px);
-      border-radius: 10px;
+      border-radius: 8px;
+    }
+    @media (min-width: 640px) {
+      .candle { bottom: 105px; left: 96px; width: 18px; height: 45px; }
     }
     .flame {
       position: absolute;
-      bottom: 146px;
-      left: 94px;
-      width: 22px;
-      height: 32px;
+      bottom: 128px;
+      left: 80px;
+      width: 20px;
+      height: 28px;
       background: radial-gradient(circle, #fff3a0 20%, #ffb347 65%, #ff4d00 100%);
       border-radius: 50% 50% 40% 40%;
       animation: flicker 0.2s infinite alternate;
       cursor: pointer;
+    }
+    @media (min-width: 640px) {
+      .flame { bottom: 146px; left: 94px; width: 22px; height: 32px; }
     }
     @keyframes flicker {
       from { transform: scale(1) rotate(-2deg); opacity: 0.95; }
@@ -418,8 +455,8 @@
     .confetti {
       position: fixed;
       top: -20px;
-      width: 11px;
-      height: 18px;
+      width: 10px;
+      height: 16px;
       animation: fallConfetti 3.2s linear forwards;
       z-index: 100;
     }
@@ -442,69 +479,82 @@
     .memory-card {
       background: rgba(255,245,250,0.7);
       backdrop-filter: blur(8px);
-      border-radius: 32px;
+      border-radius: 28px;
       transition: all 0.3s;
+      padding: 16px;
+    }
+    @media (min-width: 640px) {
+      .memory-card { border-radius: 32px; padding: 24px; }
     }
     .surprise-img {
-      border-radius: 28px;
+      border-radius: 24px;
       box-shadow: 0 20px 35px rgba(0,0,0,0.2);
       max-width: 100%;
       height: auto;
       border: 3px solid white;
     }
+    @media (min-width: 640px) {
+      .surprise-img { border-radius: 28px; }
+    }
     button:active { transform: scale(0.97); }
     
     .video-container {
       position: relative;
-      border-radius: 32px;
+      border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 25px 40px rgba(0,0,0,0.25);
+    }
+    @media (min-width: 640px) {
+      .video-container { border-radius: 32px; }
     }
     .video-container video {
       width: 100%;
       border-radius: 28px;
       display: block;
     }
+    @media (min-width: 640px) {
+      .video-container video { border-radius: 28px; }
+    }
 
     .music-toggle {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 16px;
+      right: 16px;
       z-index: 999;
       background: rgba(255,255,255,0.3);
       backdrop-filter: blur(10px);
       border: 2px solid rgba(255,255,255,0.5);
       border-radius: 50%;
-      width: 56px;
-      height: 56px;
+      width: 48px;
+      height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
+      font-size: 24px;
       cursor: pointer;
       box-shadow: 0 8px 25px rgba(0,0,0,0.2);
       transition: all 0.3s;
       color: #ff2e7d;
     }
-    .music-toggle:hover {
-      transform: scale(1.1);
-      background: rgba(255,255,255,0.5);
+    @media (min-width: 640px) {
+      .music-toggle { width: 56px; height: 56px; font-size: 28px; bottom: 20px; right: 20px; }
     }
-    .music-toggle:active {
-      transform: scale(0.9);
-    }
+    .music-toggle:active { transform: scale(0.9); }
 
     .photo-loop {
       display: flex;
       overflow-x: auto;
-      gap: 16px;
-      padding: 12px 8px;
+      gap: 12px;
+      padding: 10px 6px;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
-      border-radius: 32px;
+      border-radius: 28px;
       background: rgba(255,255,255,0.15);
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255,255,255,0.25);
+    }
+    @media (min-width: 640px) {
+      .photo-loop { gap: 16px; padding: 12px 8px; border-radius: 32px; }
     }
     .photo-loop::-webkit-scrollbar {
       height: 4px;
@@ -516,58 +566,64 @@
       border-radius: 20px;
     }
     .photo-loop .photo-item {
-      flex: 0 0 70%;
+      flex: 0 0 75%;
       scroll-snap-align: center;
-      border-radius: 28px;
+      border-radius: 24px;
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(0,0,0,0.25);
       border: 3px solid white;
       transition: transform 0.3s;
     }
+    @media (min-width: 640px) {
+      .photo-loop .photo-item { flex: 0 0 45%; border-radius: 28px; }
+    }
     .photo-loop .photo-item img {
       width: 100%;
-      height: 260px;
+      height: 220px;
       object-fit: cover;
       display: block;
     }
-    .photo-loop .photo-item:hover {
-      transform: scale(1.02);
-    }
     @media (min-width: 640px) {
-      .photo-loop .photo-item {
-        flex: 0 0 45%;
-      }
+      .photo-loop .photo-item img { height: 260px; }
     }
 
-    /* Contract styles */
+    /* Contract styles - responsive */
     .contract-item {
       background: rgba(255,255,255,0.15);
       backdrop-filter: blur(4px);
-      border-radius: 16px;
-      padding: 12px 16px;
-      margin-bottom: 10px;
+      border-radius: 14px;
+      padding: 10px 14px;
+      margin-bottom: 8px;
       border-left: 4px solid #ff6b9d;
       text-align: left;
+      font-size: 0.9rem;
     }
-    .contract-item strong {
-      color: #ff2e7d;
+    @media (min-width: 640px) {
+      .contract-item { padding: 12px 16px; margin-bottom: 10px; font-size: 1rem; }
     }
+    .contract-item strong { color: #ff2e7d; }
     .signature-area {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 16px;
       justify-content: center;
-      margin-top: 20px;
+      margin-top: 16px;
+    }
+    @media (min-width: 640px) {
+      .signature-area { gap: 20px; margin-top: 20px; }
     }
     .signature-box {
       background: rgba(255,255,255,0.2);
       backdrop-filter: blur(4px);
-      border-radius: 20px;
-      padding: 16px 20px;
-      min-width: 180px;
+      border-radius: 18px;
+      padding: 14px 16px;
+      min-width: 150px;
       flex: 1;
       border: 2px dashed rgba(255,255,255,0.4);
       text-align: center;
+    }
+    @media (min-width: 640px) {
+      .signature-box { padding: 16px 20px; min-width: 180px; border-radius: 20px; }
     }
     .signature-box input {
       background: transparent;
@@ -575,57 +631,62 @@
       border-bottom: 2px solid #ff6b9d;
       width: 100%;
       padding: 6px 4px;
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: #4a0e2a;
       outline: none;
       font-family: 'Pacifico', cursive;
       text-align: center;
     }
+    @media (min-width: 640px) {
+      .signature-box input { font-size: 1rem; }
+    }
     .signature-box input::placeholder {
       color: rgba(74, 14, 42, 0.4);
       font-family: 'Poppins', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
     .fingerprint {
-      font-size: 3.5rem;
+      font-size: 2.8rem;
       cursor: pointer;
       transition: 0.3s;
       display: inline-block;
       user-select: none;
     }
-    .fingerprint:hover {
-      transform: scale(1.2);
+    @media (min-width: 640px) {
+      .fingerprint { font-size: 3.5rem; }
     }
+    .fingerprint:active { transform: scale(0.9); }
     .fingerprint.pressed {
       color: #ff2e7d;
       text-shadow: 0 0 20px rgba(255,46,125,0.5);
     }
 
-    /* Special Message & Video Styles */
     .special-message {
       background: rgba(255,255,255,0.15);
       backdrop-filter: blur(8px);
-      border-radius: 32px;
-      padding: 28px 20px;
+      border-radius: 28px;
+      padding: 20px 16px;
       border: 1px solid rgba(255,255,255,0.25);
       text-align: center;
     }
+    @media (min-width: 640px) {
+      .special-message { padding: 28px 20px; border-radius: 32px; }
+    }
     .special-message p {
-      font-size: 1.1rem;
-      line-height: 1.8;
+      font-size: 1rem;
+      line-height: 1.7;
       color: #4a0e2a;
       max-width: 600px;
       margin: 0 auto;
     }
+    @media (min-width: 640px) {
+      .special-message p { font-size: 1.1rem; line-height: 1.8; }
+    }
 
-    /* Print Styles - Fixed for single page */
+    /* Print Styles */
     @media print {
-      body * {
-        visibility: hidden;
-      }
-      #printableContract, #printableContract * {
-        visibility: visible;
-      }
+      body * { visibility: hidden; }
+      #printableContract, #printableContract * { visibility: visible; }
       #printableContract {
         position: absolute;
         left: 0;
@@ -658,55 +719,23 @@
         border-bottom-color: #e91e63;
         font-size: 0.9rem;
       }
-      #printableContract h2 {
-        font-size: 1.6rem !important;
-        margin-bottom: 6px !important;
-      }
-      #printableContract p {
-        font-size: 10px !important;
-        margin: 3px 0 !important;
-      }
-      #printableContract hr {
-        margin: 6px 0 !important;
-      }
-      #printableContract div[style*="margin-top:24px"] {
-        margin-top: 12px !important;
-        padding: 12px !important;
-      }
-      #printableContract div[style*="display:flex"] {
-        gap: 10px !important;
-      }
-      #printableContract .fingerprint {
-        font-size: 2rem !important;
-      }
-      .no-print {
-        display: none !important;
-      }
-      .music-toggle {
-        display: none !important;
-      }
-      .balloon {
-        display: none !important;
-      }
-      .confetti {
-        display: none !important;
-      }
-      .heart {
-        display: none !important;
-      }
-      .sparkle {
-        display: none !important;
-      }
-      .glass {
-        background: white !important;
-        backdrop-filter: none !important;
-        box-shadow: none !important;
-        border: none !important;
-      }
+      #printableContract h2 { font-size: 1.6rem !important; margin-bottom: 6px !important; }
+      #printableContract p { font-size: 10px !important; margin: 3px 0 !important; }
+      #printableContract hr { margin: 6px 0 !important; }
+      #printableContract div[style*="margin-top:24px"] { margin-top: 12px !important; padding: 12px !important; }
+      #printableContract div[style*="display:flex"] { gap: 10px !important; }
+      #printableContract .fingerprint { font-size: 2rem !important; }
+      .no-print { display: none !important; }
+      .music-toggle { display: none !important; }
+      .balloon { display: none !important; }
+      .confetti { display: none !important; }
+      .heart { display: none !important; }
+      .sparkle { display: none !important; }
+      .glass { background: white !important; backdrop-filter: none !important; box-shadow: none !important; border: none !important; }
     }
   </style>
 </head>
-<body class="flex items-center justify-center px-4 relative">
+<body>
 
   <!-- LOCK SCREEN -->
   <div id="lockScreen">
@@ -737,7 +766,6 @@
         <button class="pin-btn" data-value="delete"><span class="delete-icon">⌫</span></button>
       </div>
       <div class="lock-error" id="lockError">❌ Incorrect code. Try again.</div>
-     
     </div>
   </div>
 
@@ -748,72 +776,72 @@
       <div class="flowers">🌹 🌸 🌹</div>
       <h1>Happy Anniversary, Love! ❤️</h1>
       <p class="sub-welcome">Celebrating the beautiful journey of us</p>
-      <div class="quote">"Loving you has been the most beautiful chapter of my life. 📖❤️."</div>
-      <div style="margin-top:20px; font-size:2rem; letter-spacing:6px;">💕✨💕</div>
+      <div class="quote">"Loving you has been the most beautiful chapter of my life. 📖❤️"</div>
+      <div style="margin-top:16px; font-size:1.6rem; letter-spacing:6px;">💕✨💕</div>
     </div>
   </div>
 
-  <!-- MAIN APP (original) -->
+  <!-- MAIN APP -->
   <div id="mainApp" style="display:none;">
-    <audio id="bgMusic" loop preload="auto">
+    <audio id="bgMusic" loop preload="none">
       <source src="C:\Users\Algene\Downloads\Demon Slayer_ Gurenge Wedding Entrance.mp3" type="audio/mpeg">
     </audio>
 
     <button class="music-toggle" id="musicToggle" onclick="toggleMusic()" title="Toggle Music"> 🔊 </button>
 
-    <div class="balloon bg-pink-400 left-6 top-16"></div>
-    <div class="balloon bg-purple-400 right-6 top-24" style="animation-delay:1.2s"></div>
-    <div class="balloon bg-yellow-300 left-[15%] bottom-12" style="animation-delay:2s"></div>
-    <div class="balloon bg-rose-400 right-[20%] bottom-16" style="animation-delay:0.6s"></div>
+    <div class="balloon bg-pink-400 left-4 top-12" style="width:40px;height:55px;"></div>
+    <div class="balloon bg-purple-400 right-4 top-20" style="animation-delay:1.2s;width:40px;height:55px;"></div>
+    <div class="balloon bg-yellow-300 left-[12%] bottom-8" style="animation-delay:2s;width:40px;height:55px;"></div>
+    <div class="balloon bg-rose-400 right-[18%] bottom-10" style="animation-delay:0.6s;width:40px;height:55px;"></div>
 
-    <main class="relative z-10 w-full max-w-3xl">
-      <div class="glass rounded-[2.8rem] p-5 sm:p-9 text-center min-h-[600px] flex items-center justify-center transition-all">
+    <main class="relative z-10 w-full max-w-3xl mx-auto px-3 sm:px-4">
+      <div class="glass rounded-[2rem] sm:rounded-[2.8rem] p-4 sm:p-9 text-center min-h-[500px] sm:min-h-[600px] flex items-center justify-center transition-all w-full">
         
         <!-- STEP 0 : Welcome -->
         <section class="step active w-full" data-step="0">
-          <p class="uppercase tracking-[0.4em] text-sm text-pink-900 mb-3 font-semibold">✨ Happy Anniversary ✨</p>
-          <h1 class="font-love text-5xl sm:text-7xl text-rose-900 drop-shadow-lg mb-5">My Love</h1>
-          <p class="text-lg sm:text-xl text-rose-900/90 max-w-xl mx-auto mb-7">Our anniversary reminds me that the happiest parts of my life are the moments I share with you. Here's to us, our love, and all the beautiful memories still ahead of us.</p>
-          <button onclick="startJourney()" class="bg-white text-pink-700 px-9 py-4 rounded-full font-bold shadow-2xl hover:scale-105 transition duration-200">💗 Begin Our Journey 💗</button>
+          <p class="uppercase tracking-[0.3em] sm:tracking-[0.4em] text-xs sm:text-sm text-pink-900 mb-2 sm:mb-3 font-semibold">✨ Happy Anniversary ✨</p>
+          <h1 class="font-love text-4xl sm:text-7xl text-rose-900 drop-shadow-lg mb-4 sm:mb-5">My Love</h1>
+          <p class="text-base sm:text-xl text-rose-900/90 max-w-xl mx-auto mb-6 sm:mb-7">Our anniversary reminds me that the happiest parts of my life are the moments I share with you. Here's to us, our love, and all the beautiful memories still ahead of us.</p>
+          <button onclick="startJourney()" class="bg-white text-pink-700 px-7 sm:px-9 py-3 sm:py-4 rounded-full font-bold shadow-2xl hover:scale-105 transition duration-200 text-sm sm:text-base">💗 Begin Our Journey 💗</button>
         </section>
 
         <!-- STEP 1 : First Heart Catch Game -->
         <section class="step w-full" data-step="1">
-          <h2 class="font-love text-4xl sm:text-5xl mb-3 text-rose-900">Catch my heartbeat 💓</h2>
-          <p class="mb-5 text-rose-800/80">Tap the floating heart 5 times — catch every love beat.</p>
-          <div class="relative h-80 rounded-3xl bg-white/20 border-2 border-white/40 overflow-hidden" id="heartGame">
-            <button id="catchHeart" class="absolute text-6xl heart-btn transition-all duration-75 cursor-pointer">💖</button>
-            <div class="absolute left-3 top-3 bg-black/20 backdrop-blur px-4 py-2 rounded-full text-pink-100 font-bold">❤️ <span id="score">0</span>/5</div>
+          <h2 class="font-love text-3xl sm:text-5xl mb-2 sm:mb-3 text-rose-900">Catch my heartbeat 💓</h2>
+          <p class="mb-4 sm:mb-5 text-rose-800/80 text-sm sm:text-base">Tap the floating heart 5 times — catch every love beat.</p>
+          <div class="relative h-64 sm:h-80 rounded-2xl sm:rounded-3xl bg-white/20 border-2 border-white/40 overflow-hidden" id="heartGame">
+            <button id="catchHeart" class="absolute text-5xl sm:text-6xl heart-btn transition-all duration-75 cursor-pointer">💖</button>
+            <div class="absolute left-2 sm:left-3 top-2 sm:top-3 bg-black/20 backdrop-blur px-3 sm:px-4 py-1 sm:py-2 rounded-full text-pink-100 font-bold text-xs sm:text-base">❤️ <span id="score">0</span>/5</div>
           </div>
-          <p class="text-sm mt-4 text-pink-800/70 animate-pulse">💘 tap the moving heart 💘</p>
+          <p class="text-xs sm:text-sm mt-3 sm:mt-4 text-pink-800/70 animate-pulse">💘 tap the moving heart 💘</p>
         </section>
 
         <!-- STEP 2 : FIRST PICTURE -->
         <section class="step w-full" data-step="2">
-          <h2 class="font-love text-4xl sm:text-5xl mb-2 text-rose-900">A Glimpse Of Us 📸</h2>
-          <div class="memory-card p-4 my-4 max-w-md mx-auto">
+          <h2 class="font-love text-3xl sm:text-5xl mb-2 text-rose-900">A Glimpse Of Us 📸</h2>
+          <div class="memory-card my-3 sm:my-4 max-w-md mx-auto">
             <img src="PICTURE BIRTHDAY.jpg" alt="Romantic memory" class="surprise-img w-full rounded-2xl shadow-xl">
-            <p class="mt-4 text-lg font-semibold text-rose-800">"This photo captures one of the happiest moments we've shared together. Every time I see this picture, I'm reminded of the love, laughter, and beautiful memories we created together. ❤️"</p>
-            <p class="text-pink-700 mt-2 text-sm italic">✨ The moment I knew my life changed ✨</p>
+            <p class="mt-3 sm:mt-4 text-base sm:text-lg font-semibold text-rose-800">"This photo captures one of the happiest moments we've shared together. Every time I see this picture, I'm reminded of the love, laughter, and beautiful memories we created together. ❤️"</p>
+            <p class="text-pink-700 mt-2 text-xs sm:text-sm italic">✨ The moment I knew my life changed ✨</p>
           </div>
-          <button onclick="nextStep()" class="mt-3 bg-pink-600 text-white px-7 py-3 rounded-full font-bold shadow-lg hover:bg-pink-700 transition">💞 Continue 💞</button>
+          <button onclick="nextStep()" class="mt-2 sm:mt-3 bg-pink-600 text-white px-6 sm:px-7 py-2 sm:py-3 rounded-full font-bold shadow-lg hover:bg-pink-700 transition text-sm sm:text-base">💞 Continue 💞</button>
         </section>
 
         <!-- STEP 3 : CATCH HEART BEFORE PHOTO LOOP -->
         <section class="step w-full" data-step="3">
-          <h2 class="font-love text-4xl sm:text-5xl mb-3 text-rose-900">Catch 3 Hearts 💕</h2>
-          <p class="mb-4 text-rose-800/80">Tap the floating heart 3 times to unlock a beautiful photo gallery of our memories.</p>
-          <div class="relative h-80 rounded-3xl bg-white/20 border-2 border-white/40 overflow-hidden" id="heartGameLoop">
-            <button id="catchHeartLoop" class="absolute text-6xl heart-btn transition-all duration-75 cursor-pointer">💗</button>
-            <div class="absolute left-3 top-3 bg-black/20 backdrop-blur px-4 py-2 rounded-full text-pink-100 font-bold">💕 <span id="scoreLoop">0</span>/3</div>
+          <h2 class="font-love text-3xl sm:text-5xl mb-2 sm:mb-3 text-rose-900">Catch 3 Hearts 💕</h2>
+          <p class="mb-3 sm:mb-4 text-rose-800/80 text-sm sm:text-base">Tap the floating heart 3 times to unlock a beautiful photo gallery of our memories.</p>
+          <div class="relative h-64 sm:h-80 rounded-2xl sm:rounded-3xl bg-white/20 border-2 border-white/40 overflow-hidden" id="heartGameLoop">
+            <button id="catchHeartLoop" class="absolute text-5xl sm:text-6xl heart-btn transition-all duration-75 cursor-pointer">💗</button>
+            <div class="absolute left-2 sm:left-3 top-2 sm:top-3 bg-black/20 backdrop-blur px-3 sm:px-4 py-1 sm:py-2 rounded-full text-pink-100 font-bold text-xs sm:text-base">💕 <span id="scoreLoop">0</span>/3</div>
           </div>
-          <p class="text-sm mt-4 text-pink-800/70 animate-pulse">❤️ tap the dancing heart ❤️</p>
+          <p class="text-xs sm:text-sm mt-3 sm:mt-4 text-pink-800/70 animate-pulse">❤️ tap the dancing heart ❤️</p>
         </section>
 
         <!-- STEP 4 : PHOTO LOOP -->
         <section class="step w-full" data-step="4">
-          <h2 class="font-love text-4xl sm:text-5xl mb-2 text-rose-900">Our Beautiful Moments 📷</h2>
-          <p class="text-rose-800/80 mb-4">Swipe through our cherished memories together 💖</p>
+          <h2 class="font-love text-3xl sm:text-5xl mb-2 text-rose-900">Our Beautiful Moments 📷</h2>
+          <p class="text-rose-800/80 mb-3 sm:mb-4 text-sm sm:text-base">Swipe through our cherished memories together 💖</p>
           <div class="photo-loop" id="photoLoop">
             <div class="photo-item"><img src="MY 3 BABY.jpg" alt="Memory 1"></div>
             <div class="photo-item"><img src="2.jpg" alt="Memory 2"></div>
@@ -822,109 +850,109 @@
             <div class="photo-item"><img src="5.jpg" alt="Memory 5"></div>
             <div class="photo-item"><img src="6.jpg" alt="Memory 6"></div>
           </div>
-          <p class="mt-4 text-sm text-rose-700 italic">❤️ Each picture holds a piece of our love story ❤️</p>
-          <button onclick="nextStep()" class="mt-4 bg-pink-600 text-white px-7 py-3 rounded-full font-bold shadow-lg hover:bg-pink-700 transition">💞 Continue 💞</button>
+          <p class="mt-3 sm:mt-4 text-xs sm:text-sm text-rose-700 italic">❤️ Each picture holds a piece of our love story ❤️</p>
+          <button onclick="nextStep()" class="mt-3 sm:mt-4 bg-pink-600 text-white px-6 sm:px-7 py-2 sm:py-3 rounded-full font-bold shadow-lg hover:bg-pink-700 transition text-sm sm:text-base">💞 Continue 💞</button>
         </section>
 
         <!-- STEP 5 : SECOND ROUND CATCH HEARTS -->
         <section class="step w-full" data-step="5">
-          <h2 class="font-love text-4xl sm:text-5xl mb-3 text-rose-900">Catch My Heart Again 💕</h2>
-          <p class="mb-4 text-rose-800/80">You unlocked a second wave of love! Catch 5 more hearts for a secret surprise.</p>
-          <div class="relative h-80 rounded-3xl bg-white/20 border-2 border-white/40 overflow-hidden" id="heartGame2">
-            <button id="catchHeart2" class="absolute text-6xl heart-btn transition-all duration-75 cursor-pointer">💗</button>
-            <div class="absolute left-3 top-3 bg-black/20 backdrop-blur px-4 py-2 rounded-full text-pink-100 font-bold">💕 <span id="score2">0</span>/5</div>
+          <h2 class="font-love text-3xl sm:text-5xl mb-2 sm:mb-3 text-rose-900">Catch My Heart Again 💕</h2>
+          <p class="mb-3 sm:mb-4 text-rose-800/80 text-sm sm:text-base">You unlocked a second wave of love! Catch 5 more hearts for a secret surprise.</p>
+          <div class="relative h-64 sm:h-80 rounded-2xl sm:rounded-3xl bg-white/20 border-2 border-white/40 overflow-hidden" id="heartGame2">
+            <button id="catchHeart2" class="absolute text-5xl sm:text-6xl heart-btn transition-all duration-75 cursor-pointer">💗</button>
+            <div class="absolute left-2 sm:left-3 top-2 sm:top-3 bg-black/20 backdrop-blur px-3 sm:px-4 py-1 sm:py-2 rounded-full text-pink-100 font-bold text-xs sm:text-base">💕 <span id="score2">0</span>/5</div>
           </div>
-          <p class="text-sm mt-4 text-pink-800/70">❤️ quick! tap the dancing heart ❤️</p>
+          <p class="text-xs sm:text-sm mt-3 sm:mt-4 text-pink-800/70">❤️ quick! tap the dancing heart ❤️</p>
         </section>
 
         <!-- STEP 6 : SECOND PICTURE -->
         <section class="step w-full" data-step="6">
-          <h2 class="font-love text-4xl sm:text-5xl mb-2 text-rose-900">✨ Memories We Treasure Together ✨</h2>
-          <div class="memory-card p-4 my-3 max-w-md mx-auto">
+          <h2 class="font-love text-3xl sm:text-5xl mb-2 text-rose-900">✨ Memories We Treasure Together ✨</h2>
+          <div class="memory-card my-3 max-w-md mx-auto">
             <img src="Anniversary picture.jpg" alt="Cherished moment" class="surprise-img w-full rounded-2xl shadow-xl">
-            <div class="mt-4 bg-white/30 rounded-2xl p-3">
-              <p class="text-rose-800 font-semibold">"This ring serves as a reminder of all the promises we've made to each other, deepening our connection and making our love stronger every day."</p>
-              <p class="text-rose-700 mt-2 text-sm">🌹 With you, every day is a celebration. I'll keep choosing you, forever. 🌹</p>
+            <div class="mt-3 sm:mt-4 bg-white/30 rounded-2xl p-3">
+              <p class="text-rose-800 font-semibold text-sm sm:text-base">"This ring serves as a reminder of all the promises we've made to each other, deepening our connection and making our love stronger every day."</p>
+              <p class="text-rose-700 mt-2 text-xs sm:text-sm">🌹 With you, every day is a celebration. I'll keep choosing you, forever. 🌹</p>
             </div>
           </div>
-          <button onclick="nextStep()" class="mt-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full font-bold shadow-xl transition hover:scale-105">💖 Next Surprise 💖</button>
+          <button onclick="nextStep()" class="mt-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold shadow-xl transition hover:scale-105 text-sm sm:text-base">💖 Next Surprise 💖</button>
         </section>
 
         <!-- STEP 7 : GIFT BOX -->
         <section class="step w-full" data-step="7">
-          <h2 class="font-love text-4xl sm:text-6xl mb-5 text-rose-900">✨ A Special Gift ✨</h2>
-          <p class="mb-8 text-rose-800/90">Tap the gift box — something precious awaits</p>
+          <h2 class="font-love text-3xl sm:text-6xl mb-3 sm:mb-5 text-rose-900">✨ A Special Gift ✨</h2>
+          <p class="mb-6 sm:mb-8 text-rose-800/90 text-sm sm:text-base">Tap the gift box — something precious awaits</p>
           <div class="gift-box" onclick="openGift(this)">
             <div class="gift-lid"></div>
           </div>
-          <p id="giftMessage" class="hidden mt-8 text-xl font-semibold text-rose-900 bg-white/20 inline-block px-6 py-3 rounded-full">💎 My whole heart belongs to you, today & always. 💎</p>
+          <p id="giftMessage" class="hidden mt-6 sm:mt-8 text-base sm:text-xl font-semibold text-rose-900 bg-white/20 inline-block px-4 sm:px-6 py-2 sm:py-3 rounded-full">💎 My whole heart belongs to you, today & always. 💎</p>
         </section>
 
         <!-- STEP 8 : CAKE + BLOW CANDLE -->
         <section class="step w-full" data-step="8">
-          <div class="cake mb-6">
+          <div class="cake mb-4 sm:mb-6">
             <div class="flame" id="flame"></div>
             <div class="candle"></div>
             <div class="cake-top"></div>
             <div class="cake-base"></div>
           </div>
-          <p class="mb-5 text-rose-800">Make a wish, my love. Blow out the candle 💨</p>
-          <button onclick="blowCandle()" class="bg-rose-600 hover:bg-rose-700 text-white px-9 py-4 rounded-full font-bold shadow-xl transition">🕯️ Blow Candle 🕯️</button>
+          <p class="mb-4 sm:mb-5 text-rose-800 text-sm sm:text-base">Make a wish, my love. Blow out the candle 💨</p>
+          <button onclick="blowCandle()" class="bg-rose-600 hover:bg-rose-700 text-white px-7 sm:px-9 py-3 sm:py-4 rounded-full font-bold shadow-xl transition text-sm sm:text-base">🕯️ Blow Candle 🕯️</button>
         </section>
 
         <!-- STEP 9 : FINAL MESSAGE -->
         <section class="step w-full" data-step="9">
-          <p class="uppercase tracking-[0.4em] text-sm text-pink-200 mb-2">forever yours</p>
-          <h2 class="font-love text-5xl sm:text-7xl mb-5 text-rose-900">Happy Anniversary My Love ❤️</h2>
-          <div class="max-w-2xl mx-auto text-left bg-white/25 rounded-3xl p-5 border border-white/30">
-            <img src="proposed.jpg" alt="Romantic sunset couple" class="rounded-2xl w-full mb-4 shadow-xl border-2 border-white">
-            <p class="text-lg leading-7 text-rose-900/95">Happy Anniversary, Love! Since the day we came together, you've been one of the greatest blessings in my life. Thank you for all the love, care, and happiness you've given me. Every moment we spend together becomes a beautiful memory that I will always treasure.</p>
-            <p class="text-lg leading-7 text-rose-900/95 mt-3">Through all the ups and downs, you've remained my source of strength and comfort. You make my days brighter and my heart fuller, and I'm truly grateful to have you by my side. As we celebrate this anniversary, I want you to know that my love for you continues to grow every day. I look forward to creating more memories, achieving our dreams together, and sharing many more anniversaries with you. Mahal na mahal kita, Love! ❤️🥰✨</p>
-            <div class="mt-5 text-center text-pink-800 italic">— Your forever Love</div>
+          <p class="uppercase tracking-[0.3em] sm:tracking-[0.4em] text-xs sm:text-sm text-pink-200 mb-2">forever yours</p>
+          <h2 class="font-love text-4xl sm:text-7xl mb-4 sm:mb-5 text-rose-900">Happy Anniversary My Love ❤️</h2>
+          <div class="max-w-2xl mx-auto text-left bg-white/25 rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-white/30">
+            <img src="proposed.jpg" alt="Romantic sunset couple" class="rounded-2xl w-full mb-3 sm:mb-4 shadow-xl border-2 border-white">
+            <p class="text-sm sm:text-lg leading-6 sm:leading-7 text-rose-900/95">Happy Anniversary, Love! Since the day we came together, you've been one of the greatest blessings in my life. Thank you for all the love, care, and happiness you've given me. Every moment we spend together becomes a beautiful memory that I will always treasure.</p>
+            <p class="text-sm sm:text-lg leading-6 sm:leading-7 text-rose-900/95 mt-2 sm:mt-3">Through all the ups and downs, you've remained my source of strength and comfort. You make my days brighter and my heart fuller, and I'm truly grateful to have you by my side. As we celebrate this anniversary, I want you to know that my love for you continues to grow every day. I look forward to creating more memories, achieving our dreams together, and sharing many more anniversaries with you. Mahal na mahal kita, Love! ❤️🥰✨</p>
+            <div class="mt-4 sm:mt-5 text-center text-pink-800 italic text-sm sm:text-base">— Your forever Love</div>
           </div>
-          <button onclick="nextStep()" class="mt-6 bg-white text-pink-700 px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition">💕 One More Heart Journey 💕</button>
+          <button onclick="nextStep()" class="mt-4 sm:mt-6 bg-white text-pink-700 px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold shadow-xl hover:scale-105 transition text-sm sm:text-base">💕 One More Heart Journey 💕</button>
         </section>
 
         <!-- STEP 10 : THIRD ROUND CATCH HEARTS -->
         <section class="step w-full" data-step="10">
-          <h2 class="font-love text-4xl sm:text-5xl mb-3 text-rose-900">One Last Beat 💓💖</h2>
-          <p class="mb-4 text-rose-800/80">Your love deserves endless catches! Catch 7 hearts to unlock a special video message from my heart to yours.</p>
-          <div class="relative h-80 rounded-3xl bg-white/20 border-2 border-white/40 overflow-hidden" id="heartGame3">
-            <button id="catchHeart3" class="absolute text-6xl heart-btn transition-all duration-75 cursor-pointer">💝</button>
-            <div class="absolute left-3 top-3 bg-black/20 backdrop-blur px-4 py-2 rounded-full text-pink-100 font-bold">💘 <span id="score3">0</span>/7</div>
+          <h2 class="font-love text-3xl sm:text-5xl mb-2 sm:mb-3 text-rose-900">One Last Beat 💓💖</h2>
+          <p class="mb-3 sm:mb-4 text-rose-800/80 text-sm sm:text-base">Your love deserves endless catches! Catch 7 hearts to unlock a special video message from my heart to yours.</p>
+          <div class="relative h-64 sm:h-80 rounded-2xl sm:rounded-3xl bg-white/20 border-2 border-white/40 overflow-hidden" id="heartGame3">
+            <button id="catchHeart3" class="absolute text-5xl sm:text-6xl heart-btn transition-all duration-75 cursor-pointer">💝</button>
+            <div class="absolute left-2 sm:left-3 top-2 sm:top-3 bg-black/20 backdrop-blur px-3 sm:px-4 py-1 sm:py-2 rounded-full text-pink-100 font-bold text-xs sm:text-base">💘 <span id="score3">0</span>/7</div>
           </div>
-          <p class="text-sm mt-4 text-pink-800/70 animate-pulse">✨ catch the hearts of pure love ✨</p>
+          <p class="text-xs sm:text-sm mt-3 sm:mt-4 text-pink-800/70 animate-pulse">✨ catch the hearts of pure love ✨</p>
         </section>
 
         <!-- STEP 11 : VIDEO SLIDE -->
         <section class="step w-full" data-step="11">
-          <h2 class="font-love text-4xl sm:text-5xl mb-4 text-rose-900">🎬 A Special Video For You 🎬</h2>
-          <p class="mb-5 text-rose-800/80">A little something to remind you how much you are loved...</p>
+          <h2 class="font-love text-3xl sm:text-5xl mb-3 sm:mb-4 text-rose-900">🎬 A Special Video For You 🎬</h2>
+          <p class="mb-4 sm:mb-5 text-rose-800/80 text-sm sm:text-base">A little something to remind you how much you are loved...</p>
           <div class="video-container max-w-md mx-auto">
-            <video id="anniversaryVideo" controls autoplay playsinline class="w-full rounded-3xl shadow-2xl" onended="showContract()">
+            <video id="anniversaryVideo" controls playsinline class="w-full rounded-2xl sm:rounded-3xl shadow-2xl">
               <source src="4265d88a-2d1b-4fe4-a40a-dd687ab550e6.mp4" type="video/mp4">
               Your browser does not support the video tag. But here's a heart: ❤️
             </video>
           </div>
-          <p class="mt-5 text-rose-800 font-medium">Every second with you is my favorite scene. I love you endlessly.</p>
-          <button onclick="showContract()" class="mt-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition">📜 View Our Love Contract 📜</button>
+          <p class="mt-4 sm:mt-5 text-rose-800 font-medium text-sm sm:text-base">Every second with you is my favorite scene. I love you endlessly.</p>
+          <button onclick="showContract()" class="mt-4 sm:mt-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold shadow-xl hover:scale-105 transition text-sm sm:text-base">📜 View Our Love Contract 📜</button>
         </section>
 
         <!-- STEP 12 : LOVE CONTRACT -->
         <section class="step w-full" data-step="12">
           <div class="text-left max-w-2xl mx-auto">
-            <h2 class="font-love text-4xl sm:text-5xl text-center text-rose-900 mb-2">💖 Our Love Contract 💖</h2>
-            <p class="text-center text-rose-800/80 mb-4 text-sm">This agreement is bound by love, trust, and forever. Breaking any term results in penalties of extra hugs, kisses and 500 pesos.</p>
+            <h2 class="font-love text-3xl sm:text-5xl text-center text-rose-900 mb-2">💖 Our Love Contract 💖</h2>
+            <p class="text-center text-rose-800/80 mb-3 sm:mb-4 text-xs sm:text-sm">This agreement is bound by love, trust, and forever. Breaking any term results in penalties of extra hugs, kisses and 500 pesos.</p>
             
             <!-- PRINTABLE CONTRACT -->
             <div id="printableContract">
-              <div style="text-align:center; margin-bottom:12px;">
-                <h2 style="font-family:'Pacifico',cursive; font-size:1.8rem; color:#880e4f;">💖 Our Love Contract 💖</h2>
-                <p style="color:#4a0e2a; font-size:0.85rem;">This agreement is bound by love, trust, and forever.</p>
-                <p style="color:#4a0e2a; font-size:0.8rem;">Breaking any term results in penalties of extra hugs and kisses.</p>
-                <hr style="border:1px solid #f06292; margin:8px 0;">
+              <div style="text-align:center; margin-bottom:10px;">
+                <h2 style="font-family:'Pacifico',cursive; font-size:1.5rem; color:#880e4f;">💖 Our Love Contract 💖</h2>
+                <p style="color:#4a0e2a; font-size:0.75rem;">This agreement is bound by love, trust, and forever.</p>
+                <p style="color:#4a0e2a; font-size:0.7rem;">Breaking any term results in penalties of extra hugs and kisses.</p>
+                <hr style="border:1px solid #f06292; margin:6px 0;">
               </div>
-              <div style="background:#fce4ec; border-radius:16px; padding:12px; border:1px solid #f06292;">
+              <div style="background:#fce4ec; border-radius:14px; padding:10px; border:1px solid #f06292;">
                 <div class="contract-item"><strong>1.</strong> Always communicate openly and honestly, even when it's hard.</div>
                 <div class="contract-item"><strong>2.</strong> Never go to bed angry — resolve conflicts with love and patience.</div>
                 <div class="contract-item"><strong>3.</strong> Surprise each other with small gestures of love regularly.</div>
@@ -938,71 +966,70 @@
               </div>
 
               <!-- Signature & Fingerprint Section (Printable) -->
-              <div style="margin-top:16px; background:#fce4ec; border-radius:16px; padding:12px; border:1px solid #f06292;">
-                <p style="text-align:center; color:#4a0e2a; font-weight:600; margin-bottom:8px; font-size:0.9rem;">✍️ We, the undersigned, agree to the terms above ✍️</p>
-                <div style="display:flex; flex-wrap:wrap; gap:12px; justify-content:center;">
-                  <div style="background:rgba(255,255,255,0.6); border-radius:16px; padding:10px 14px; min-width:150px; flex:1; border:2px solid #e91e63; text-align:center;">
-                    <label style="font-size:0.8rem; color:#880e4f; display:block; margin-bottom:2px;">💕 Your Name</label>
-                    <input type="text" id="printSig1" value="" style="background:transparent; border:none; border-bottom:2px solid #e91e63; width:100%; padding:4px 4px; font-size:0.9rem; color:#1a0a12; outline:none; font-family:'Pacifico',cursive; text-align:center;" readonly>
-                    <div style="margin-top:4px; font-size:2rem;">🖐️</div>
+              <div style="margin-top:12px; background:#fce4ec; border-radius:14px; padding:10px; border:1px solid #f06292;">
+                <p style="text-align:center; color:#4a0e2a; font-weight:600; margin-bottom:6px; font-size:0.8rem;">✍️ We, the undersigned, agree to the terms above ✍️</p>
+                <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:center;">
+                  <div style="background:rgba(255,255,255,0.6); border-radius:14px; padding:8px 12px; min-width:130px; flex:1; border:2px solid #e91e63; text-align:center;">
+                    <label style="font-size:0.7rem; color:#880e4f; display:block; margin-bottom:2px;">💕 Your Name</label>
+                    <input type="text" id="printSig1" value="" style="background:transparent; border:none; border-bottom:2px solid #e91e63; width:100%; padding:4px 4px; font-size:0.8rem; color:#1a0a12; outline:none; font-family:'Pacifico',cursive; text-align:center;" readonly>
+                    <div style="margin-top:4px; font-size:1.6rem;">🖐️</div>
                   </div>
-                  <div style="background:rgba(255,255,255,0.6); border-radius:16px; padding:10px 14px; min-width:150px; flex:1; border:2px solid #e91e63; text-align:center;">
-                    <label style="font-size:0.8rem; color:#880e4f; display:block; margin-bottom:2px;">💕 My Name</label>
-                    <input type="text" id="printSig2" value="" style="background:transparent; border:none; border-bottom:2px solid #e91e63; width:100%; padding:4px 4px; font-size:0.9rem; color:#1a0a12; outline:none; font-family:'Pacifico',cursive; text-align:center;" readonly>
-                    <div style="margin-top:4px; font-size:2rem;">🖐️</div>
+                  <div style="background:rgba(255,255,255,0.6); border-radius:14px; padding:8px 12px; min-width:130px; flex:1; border:2px solid #e91e63; text-align:center;">
+                    <label style="font-size:0.7rem; color:#880e4f; display:block; margin-bottom:2px;">💕 My Name</label>
+                    <input type="text" id="printSig2" value="" style="background:transparent; border:none; border-bottom:2px solid #e91e63; width:100%; padding:4px 4px; font-size:0.8rem; color:#1a0a12; outline:none; font-family:'Pacifico',cursive; text-align:center;" readonly>
+                    <div style="margin-top:4px; font-size:1.6rem;">🖐️</div>
                   </div>
                 </div>
-                <div style="text-align:center; margin-top:10px; color:#4a0e2a; font-size:0.8rem;">
+                <div style="text-align:center; margin-top:8px; color:#4a0e2a; font-size:0.7rem;">
                   <p>📅 Signed on: <span id="printDate">___________</span></p>
-                  <p style="font-family:'Pacifico',cursive; color:#880e4f; margin-top:4px; font-size:0.9rem;">💞 Sealed with love, forever and always. 💞</p>
+                  <p style="font-family:'Pacifico',cursive; color:#880e4f; margin-top:4px; font-size:0.8rem;">💞 Sealed with love, forever and always. 💞</p>
                 </div>
               </div>
             </div>
             <!-- END PRINTABLE CONTRACT -->
 
             <!-- Signature & Fingerprint Section (Interactive) -->
-            <div class="mt-6 bg-white/10 backdrop-blur-sm rounded-3xl p-5 border border-white/20 no-print">
-              <p class="text-center text-rose-800 font-semibold mb-3">✍️ Sign and seal your contract below ✍️</p>
+            <div class="mt-4 sm:mt-6 bg-white/10 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-white/20 no-print">
+              <p class="text-center text-rose-800 font-semibold mb-3 text-sm sm:text-base">✍️ Sign and seal your contract below ✍️</p>
               <div class="signature-area">
                 <div class="signature-box">
-                  <label class="text-sm text-rose-700 block mb-1">💕 Your Name</label>
+                  <label class="text-xs sm:text-sm text-rose-700 block mb-1">💕 Your Name</label>
                   <input type="text" placeholder="Sign here..." id="sig1" class="signature-input" oninput="updatePrintFields()">
                   <div class="mt-2">
                     <span class="fingerprint" id="fp1" onclick="pressFingerprint('fp1')">🖐️</span>
                   </div>
                 </div>
                 <div class="signature-box">
-                  <label class="text-sm text-rose-700 block mb-1">💕 My Name</label>
+                  <label class="text-xs sm:text-sm text-rose-700 block mb-1">💕 My Name</label>
                   <input type="text" placeholder="Sign here..." id="sig2" class="signature-input" oninput="updatePrintFields()">
                   <div class="mt-2">
                     <span class="fingerprint" id="fp2" onclick="pressFingerprint('fp2')">🖐️</span>
                   </div>
                 </div>
               </div>
-              <div class="text-center mt-4">
-                <button onclick="sealContract()" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition">💞 Seal Our Promise 💞</button>
-                <button onclick="printContract()" class="ml-3 bg-white text-pink-700 px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition">🖨️ Print Copy</button>
+              <div class="text-center mt-3 sm:mt-4 flex flex-wrap gap-2 justify-center">
+                <button onclick="sealContract()" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold shadow-xl hover:scale-105 transition text-sm sm:text-base">💞 Seal Our Promise 💞</button>
+                <button onclick="printContract()" class="bg-white text-pink-700 px-5 sm:px-6 py-2 sm:py-3 rounded-full font-bold shadow-lg hover:scale-105 transition text-sm sm:text-base">🖨️ Print Copy</button>
               </div>
-              <p id="sealMessage" class="text-center mt-3 text-rose-800 font-semibold hidden">🎉 Contract sealed with love! Forever starts now. 🎉</p>
-              <div class="text-center mt-4">
-                <button id="viewSurpriseBtn" onclick="showSpecialSurprise()" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition" style="display:none;">🎁 View Your Special Surprise 🎁</button>
+              <p id="sealMessage" class="text-center mt-3 text-rose-800 font-semibold hidden text-sm sm:text-base">🎉 Contract sealed with love! Forever starts now. 🎉</p>
+              <div class="text-center mt-3 sm:mt-4">
+                <button id="viewSurpriseBtn" onclick="showSpecialSurprise()" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold shadow-xl hover:scale-105 transition text-sm sm:text-base" style="display:none;">🎁 View Your Special Surprise 🎁</button>
               </div>
             </div>
           </div>
-          <!-- Removed Restart Journey button from contract -->
         </section>
 
         <!-- STEP 13 : SPECIAL SURPRISE MESSAGE -->
         <section class="step w-full" data-step="13">
           <div class="max-w-2xl mx-auto">
-            <h2 class="font-love text-4xl sm:text-5xl text-center text-rose-900 mb-6">💝 A Special Surprise For You 💝</h2>
+            <h2 class="font-love text-3xl sm:text-5xl text-center text-rose-900 mb-4 sm:mb-6">💝 A Special Surprise For You 💝</h2>
             <div class="special-message">
-              <p class="text-rose-900/95">
+              <p class="text-rose-900/95 text-sm sm:text-base">
                 This special video is my surprise for you, something I never thought I would be able to do. Even though so many people admire my favorite artist and wish to meet them, I was lucky enough to get this video message for you. I hope this surprise makes you smile and reminds you how much you mean to me. I wanted to create something unforgettable because you deserve all the love and happiness in the world. I love you so much, Love. ❤️🥰
               </p>
             </div>
-            <div class="mt-6">
-              <button onclick="nextStep()" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition">💖 Continue to Your Video 💖</button>
+            <div class="mt-4 sm:mt-6">
+              <button onclick="nextStep()" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold shadow-xl hover:scale-105 transition text-sm sm:text-base">💖 Continue to Your Video 💖</button>
             </div>
           </div>
         </section>
@@ -1010,16 +1037,16 @@
         <!-- STEP 14 : FINAL VIDEO SURPRISE -->
         <section class="step w-full" data-step="14">
           <div class="max-w-2xl mx-auto">
-            <h2 class="font-love text-4xl sm:text-5xl text-center text-rose-900 mb-3">🎬 A Special Surprise For You My Love 🎬</h2>
-            <p class="text-rose-800/80 text-center mb-5 text-sm">This video is my heartfelt gift to you—a collection of memories, emotions, and words that I may not always be able to express in person. I hope it reminds you of how much you are loved, appreciated, and treasured every single day. Happy Anniversary, my love.</p>
+            <h2 class="font-love text-3xl sm:text-5xl text-center text-rose-900 mb-2 sm:mb-3">🎬 A Special Surprise For You My Love 🎬</h2>
+            <p class="text-rose-800/80 text-center mb-4 sm:mb-5 text-xs sm:text-sm">This video is my heartfelt gift to you—a collection of memories, emotions, and words that I may not always be able to express in person. I hope it reminds you of how much you are loved, appreciated, and treasured every single day. Happy Anniversary, my love.</p>
             <div class="video-container max-w-md mx-auto">
-              <video id="finalSurpriseVideo" controls playsinline class="w-full rounded-3xl shadow-2xl">
+              <video id="finalSurpriseVideo" controls playsinline class="w-full rounded-2xl sm:rounded-3xl shadow-2xl">
                 <source src="7fd0ff12-20dc-43df-bd65-c605df86729e (1).mp4" type="video/mp4">
                 Your browser does not support the video tag. But here's a heart: ❤️
               </video>
             </div>
-            <p class="mt-5 text-rose-800 font-medium">💖 Forever and always, with all my love. 💖</p>
-            <button id="restartFinalBtn" onclick="restartJourney()" class="mt-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition" style="display:none;">💫 Relive the Magic 💫</button>
+            <p class="mt-4 sm:mt-5 text-rose-800 font-medium text-sm sm:text-base">💖 Forever and always, with all my love. 💖</p>
+            <button id="restartFinalBtn" onclick="restartJourney()" class="mt-4 sm:mt-6 bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-full font-bold shadow-xl hover:scale-105 transition text-sm sm:text-base" style="display:none;">💫 Relive the Magic 💫</button>
           </div>
         </section>
       </div>
@@ -1114,13 +1141,12 @@
           mainApp.style.display = 'block';
           audio.volume = 0.5;
           if (audio.paused) audio.play().catch(e => console.log(e));
-          // Initialize main app after welcome
           initMainApp();
         }, 1200);
       }, 4000);
     }
 
-    // ==================== MAIN APP (original functionality) ====================
+    // ==================== MAIN APP ====================
     let currentStep = 0;
     let score1 = 0, score2 = 0, score3 = 0, scoreLoop = 0;
     let gameActive1 = false, gameActive2 = false, gameActive3 = false, gameActiveLoop = false;
@@ -1171,14 +1197,13 @@
       if (currentStep === 3 && !gameActiveLoop) { resetGameLoop(); startHeartMovingLoop(); gameActiveLoop = true; }
       if (currentStep === 11) {
         launchConfetti(160);
-        const video = document.getElementById('anniversaryVideo');
-        if (video) video.play().catch(e => console.log("Autoplay prevented"));
+        // Video no longer autoplays
       }
       if (currentStep === 14) {
         launchConfetti(150);
         const video = document.getElementById('finalSurpriseVideo');
         if (video) {
-          video.play().catch(e => console.log("Autoplay prevented"));
+          // No autoplay - user must click play
           video.addEventListener('ended', function() {
             finalVideoWatched = true;
             document.getElementById('restartFinalBtn').style.display = 'inline-block';
@@ -1446,7 +1471,7 @@
         heart.className = 'heart';
         heart.innerHTML = ['❤️','💖','💝','💕','💗','🌸','✨'][Math.floor(Math.random() * 7)];
         heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.fontSize = (20 + Math.random() * 34) + 'px';
+        heart.style.fontSize = (18 + Math.random() * 30) + 'px';
         heart.style.animationDuration = (5 + Math.random() * 5) + 's';
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 9000);
@@ -1454,7 +1479,7 @@
     }
 
     function createSparklesStatic() {
-      for (let i = 0; i < 45; i++) {
+      for (let i = 0; i < 35; i++) {
         const sp = document.createElement('div');
         sp.className = 'sparkle';
         sp.style.left = Math.random() * 100 + 'vw';
